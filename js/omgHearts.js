@@ -54,7 +54,7 @@ $(function() {
       .attr("stroke-width", 1.5)
       .attr("fill", "none")
      .transition()
-      .duration(3000)
+      .duration(2000)
       .ease(Math.sqrt)
       .attr("transform", function() {
         return scaleFromCenter(dat, 5);})

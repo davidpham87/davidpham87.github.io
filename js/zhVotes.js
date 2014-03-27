@@ -1,6 +1,6 @@
 $(function(){
-  var width = Math.min(innerWidth, 960), 
-      height = Math.min(innerHeight, 500);
+  var width = Math.min(innerWidth*0.75, 960), 
+      height = Math.min(innerHeight*0.75, 500);
 
   var path = d3.geo.path()
     .projection(null);

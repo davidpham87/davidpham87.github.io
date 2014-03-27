@@ -2,8 +2,8 @@ d3.json("data/computerSkills.json", function(error, graph) {
  
   console.log(error)
 
-  var width = Math.min(960, innerWidth*0.85),
-      height = Math.min(500, innerHeight);
+  var width = Math.min(960, innerWidth*0.75),
+      height = Math.min(500, innerHeight*75);
 
   var color = d3.scale.category20();
 

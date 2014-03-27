@@ -4,8 +4,8 @@ $(function(){
   function y(d) { return d.y; }
 
   var margin = {top: 10, right: 50, bottom: 50, left: 50},
-  width = Math.min(960, innerWidth) - margin.left - margin.right,
-  height = Math.min(500, innerHeight) - margin.bottom - margin.top;
+  width = Math.min(960, innerWidth*0.75) - margin.left - margin.right,
+  height = Math.min(500, innerHeight*0.75) - margin.bottom - margin.top;
 
   var svg = d3.select("#svgSnowHearts")
     .attr("width", width + margin.left + margin.right)

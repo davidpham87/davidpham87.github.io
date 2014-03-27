@@ -1,8 +1,8 @@
 $(function(){
 
   var margin = {top: 20, right: 20, bottom: 30, left: 150},
-  width = Math.min(960, innerWidth) - margin.left - margin.right,
-  height = Math.min(500, innerHeight) - margin.top - margin.bottom;
+  width = Math.min(960, innerWidth*0.75) - margin.left - margin.right,
+  height = Math.min(500, innerHeight*0.75) - margin.top - margin.bottom;
 
   var x = d3.scale.linear()
     .range([0, width]);
@@ -50,7 +50,6 @@ $(function(){
       .attr("dy", "1em")
       .style("text-anchor", "start")
       .text("Skill")
-
 
     svg.selectAll(".bar")
       .data(data)
