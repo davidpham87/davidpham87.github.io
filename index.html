@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<!--
+	  Escape Velocity 2.5 by HTML5 UP
+	  html5up.net | @n33co
+	  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+	<head>
+		<title>My honest CV</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="css/latex-style.css">
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+    <script src="js/d3.v3.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>    
+		<link rel="stylesheet" href="css/colorbrewer.css" />
+    <link rel="stylesheet" href="css/d3-style.css" />
+	</head>
+	<body class="homepage">
+		<!-- Header Wrapper -->
+		<div id="header-wrapper" class="wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<!-- Header -->
+						<div id="header">
+							<!-- Logo -->
+							<div id="logo">
+                <br><br><br><br><br>
+								<h1>An honest interactive CV</h1>
+                <br>
+							</div>
+							
+							<!-- Nav -->
+							<nav id="nav">		
+								<ul id="navUl">
+								</ul>
+							</nav>
+							<!-- /Nav -->
+						</div>
+						<!-- /Header -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- /Header Wrapper -->
+		<div id="intro-wrapper" class="wrapper wrapper-style1">
+			<div class="title">The Introduction</div>
+			<div class="container">
+				<div class="row">
+					<div class="12u">							
+						<!-- Intro -->
+						<section id="intro">
+							<p class="style1">So in case you were wondering what this is all about ...</p>
+							<p class="style2">
+								This is an honest resume  that I created to help me in my job search.
+							</p>
+							<p class="style1">It is <strong>trustworthy</strong>, <strong>verifiable</strong> and display my <strong>skills</strong>. 
+                It is built on <strong>HTML5</strong>, <strong>CSS3</strong> and <strong>D3.js</strong>. Because of the interactivity, the website works best with Google Chrome.
+
+						</section>
+						<!-- /Intro -->							
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Intro Wrapper -->
+	  
+    <!-- Eduction Wrapper -->
+    <div class="wrapper wrapper-style2">
+      <div class="title" id="head-education"> 
+        <h1 class="fa fa-book"> Education</h1>
+      </div>
+      <div class="container feature-list">
+		  	<div class="row">
+					<div class="6u">
+						<section>
+							<h3 class="fa fa-certificate">University of Montreal, Montreal, 2012 </h3>
+              <p>
+                MSc in Mathematics. <br>
+                Lectures at HEC, McGill and Concordia. <br>
+                GPA: 4.1/4.3, 95%. <br>
+                Thesis in Statistics (Copulae) at ETHZ.
+              </p>
+						</section>
+          </div>
+					<div class="6u">
+            <section>
+							<h3 class="fa fa-certificate">EPFL, Lausanne, 2010</h3>
+							<p> 
+                BSc in Mathematics. <br>
+                Focus on numerical analysis. <br> 
+                GPA (3rd year): 5.41/6, 90%. 
+              </p>
+						</section>
+          </div>
+        </div>
+      </div>
+    </div>
+		<!-- Intro Wrapper -->
+		<div class="wrapper wrapper-style3">
+      <div class="title" id="head-profesionnal-Xp"> 
+        <h1 class="fa fa-briefcase"> Professional Experience</h1>
+      </div>
+      <div id="intro-wrapper-prof"> </div>
+    </div>	
+		<!-- Main Wrapper -->
+		<div class="wrapper wrapper-style2">
+			<div class="title" id="head-computer-skills">
+        <h1 class="feature-list fa fa-code"> Computer Skills</h1>
+      </div>
+			<div class="container">
+				<div class="row">
+					<div class="12u">							
+						<!-- Main -->
+						<div id="main">									
+							<!-- Image -->
+							<!-- <a href="http://fav.me/d5pjw3g" class="image image-featured"> -->
+							<!-- 	<img src="images/pic01.jpg" alt="" /> -->
+							<!-- </a> -->
+							<!-- /Image -->
+				      <header class="style1">
+					      <h4 class="style1">
+						      Drag the nodes, move your mouse on them or the links to get more details and double click on the nodes to see my approximate level of the language.
+                </h4>
+				      </header>
+
+							<section id="Computer Skills">
+                <svg id='svgComputerSkills'> </svg>
+              </section> 
+						</div>
+					</div>
+				</div>
+			</div>
+
+      <div class="wrapper wrapper-style3">
+				<div class="title" id="head-hardskills">
+          <h1 class="feature-list fa fa-code-fork"> Hard Skills</h1>
+        </div>
+				<div class="container">
+					<div class="row">
+						<div class="12u">							
+							<!-- Main -->
+							<div id="main">									
+								<section id="Hard Skills">
+                  <svg id='svgHardSkills'> </svg>
+                </section> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+		  <!-- /Main Wrapper -->
+      <!-- Language Wrapper -->
+		  <div class="wrapper wrapper-style2">
+			  <div class="title" id="head-languages">
+          <h3 class="feature-list fa fa-comments"> Languages</h3>  
+        </div>
+			  <div class="container feature-list">
+		  	  <div class="row">
+						<div class="6u">
+							<section>
+								<h3 class="fa fa-comment">French</h3>
+								<p> Mother tongue </p>
+							</section>
+						</div>  
+						<div class="6u">
+							<section>
+								<h3 class="fa fa-comment">English</h3>
+								<p> TOEFL 107/120 (2009). Since then, I have been to Montreal and worked for 2 years in English environments.</p>
+							</section>
+						</div>  
+						<div class="6u">
+							<section>
+								<h3 class="fa fa-comment">German</h3>
+								<p> Zwei sprachige Matura auf Deutsch (2007). I have been living in Zurich for the past 2 years.</p>
+							</section>
+						</div>  
+						<div class="6u">
+							<section>
+								<h3 class="fa fa-comment">Vietnamese</h3>
+								<p> Spoken, but hardly practiced it outside informal situations.</p>
+							</section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+		  <!-- Highlights Wrapper -->
+			<div class="wrapper wrapper-style3">
+				<div class="title">
+          <h3 class="fa fa-bar-chart-o"> Fun with plots</h3>
+        </div>
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+					    <!-- Highlights -->
+					    <div id="highlights">
+						    <div>
+							    <div class="row">
+						        <div class="12u">
+                      <div>
+                        <section class="highlight highlight-one">
+                          <h3 class="4u highlight-one">Omg Hearts</h3>
+                          <p>Move your mouse over the black rectangle and see what happens!</p>
+					                <svg id="svgOmgHearts"></svg>
+                        </section>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="12u">
+                      <div>
+                        <section class="highlight highlight-one">
+                          <h3 class="4u highlight-one">Heart flakes</h3>
+                          <p> A nice animation using d3.js. Move your mouse on the plot and see what happens! You can decrease the number of hearts with the slider! </p>
+					                <svg id="svgSnowHearts"></svg>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="12u">
+                    <div>
+                      <section class="highlight highlight-one">
+                        <h3 class="4u highlight-one">Chloropleth of Canton Zurich</h3>
+                        <p> A chloropleth of Zurich, showing the acceptance rate for the referendum about immigration on the 9th of February 2014.</p>
+					              <svg id="svgZhVotes"></svg>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+							</div>
+						</div>
+						<!-- /Highlights -->							
+					</div>
+				</div>
+			</div>
+		<!-- /Highlights Wrapper -->
+
+		<!-- Footer Wrapper -->
+		<div id="footer-wrapper" class="wrapper">
+			<div class="title">Contact</div>
+			<div class="container">
+				<div class="row">
+					<div class="12u">
+						<!-- Footer -->
+						<div id="footer">
+							<header class="style1">
+								<h2>Did I raise your interest?</h2>
+								<p class="byline">
+                  Feel free to contact me.
+								</p>
+							</header>
+              <br/> <br/>
+              <div class="feature-list feature-list-small">
+								<div class="row">
+									<div class="3u">
+										<section>
+											<h3 class="fa fa-comment">Social</h3>
+											<p>
+                        <div class="fa fa-linkedin-square"> <a href="http://ch.linkedin.com/in/davidpham87/"> LinkedIn</a></div>
+												<div class="fa fa-twitter-square"> <a href="http://twitter.com/LittleFunnyGeek"> @LittleFunnyGeek</a> </div>
+												<div class="fa fa-google-plus-square"> <a href="http://littlegeekland.blogspot.com"> Blog</a></div>
+												<div class="fa fa-facebook-square"> <a href="http://www.facebook.com/davidpham87"> Facebook</a></div>
+											</p>
+										</section>
+									</div>
+									<div class="3u">
+										<section>
+											<h3 class="fa fa-envelope">Email</h3>
+											<p>
+												<div class="fa fa-envelope-o"> <a href="mailto:davidpham87@gmail.com">davidpham87@gmail.com </a></div>
+											</p>
+										</section>
+									</div>
+									<div class="3u">
+										<section>
+											<h3 class="fa fa-phone">Phone</h3>
+											<p>
+												On demand.
+											</p>
+										</section>
+									</div>
+									<div class="3u">
+										<section>
+											<h3 class="fa fa-home">Mailing Address</h3>
+											<p>
+                        On demand.
+												<!-- 6 Gusatv- <br/> -->
+												<!-- 1234 Somewhere Rd #987<br/> -->
+												<!-- Nashville, TN 00000-0000 -->
+											</p>
+										</section>
+									</div>
+								</div>
+							</div>
+							<hr />
+						</div>
+						<!-- /Footer -->
+
+						<!-- Copyright -->
+						<div id="copyright">
+							<span>
+								&copy; 2014, David Pham. HTML & CSS Templates by HTML5Up.
+							</span>
+						</div>
+						<!-- /Copyright -->						
+					</div>
+				</div>
+      </div>
+    </div>
+		<!-- /Footer Wrapper -->
+    <script type="text/javascript" src="js/createIntroButton.js"></script>
+    <script type="text/javascript" src="js/computerSkills.js"></script>
+    <script type="text/javascript" src="js/hardSkills.js"></script>
+    <script type="text/javascript" src="js/includeProfessionalXp.js"></script>
+    <script type="text/javascript" src="js/omgHearts.js"></script>
+    <script type="text/javascript" src="js/heartsInteractive.js"></script>
+    <script type="text/javascript" src="js/zhVotes.js"></script>
+	</body>
+</html>

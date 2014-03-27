@@ -1,0 +1,11 @@
+[
+{"company":"Deutsche Bank",
+	"htmlText":["Responsible for the communication between two IT development teams.","Gain of 10 hours in weekly manual control thanks to VBA"]},
+{"company":"ETHZ",
+	"htmlText":["Provided market information on home appliances and real estate for senior researchers.","Created web scrappers with R to automatically collect online data on real estate and several online databases."]},
+{"company":"Lombard Odier",
+	"htmlText":["Redesigned the control on derivatives in Excel\/VBA in the quantitative Risk Management Unit.","Gain of 4 hours in weekly manual controls thanks to automation and of 90% on the software's execution time (25min to 2min).", "Developed a database in Access\/SQL\/VBA used by 5 seniors managers for their hiring processes."]},
+{"company":"UBS - Investment Banking",
+	"htmlText":["Reviewing exotic foreign exchange derivative products with special emphasis on risk management and numerical stability.","Designed, programmed and automated tests in VBA (simulations) and R (plots) for multidimensional exotic derivatives.","Documented, analyzed risks and certified 5 exotic foreign exchange derivatives."]},
+{"company":"Winton Capital Management",
+	"htmlText":["Large scale simulations of trend following trading algorithms.","Creation of simulations in python with analysis in pandas and R.","Acquisition and practice of Winton's scientific method in statistical researches in expected returns.","Writing of python scripts for producing reports (in LATEX).","Production of interactive visualizations with D3.js for data quality control.","Data analysis of businesses selling daily macroeconomics time series."]}]
