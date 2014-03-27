@@ -1,7 +1,7 @@
 $(function() {
  
-  var width = Math.min(960, innerWidth-40),
-    height = Math.min(500, innerHeight-40);
+  var width = Math.min(960, innerWidth-80),
+    height = Math.min(500, innerHeight-80);
 
   var svg = d3.select("#svgOmgHearts")
     .attr("width", width)
