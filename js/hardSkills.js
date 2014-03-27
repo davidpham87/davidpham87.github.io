@@ -36,9 +36,9 @@ $(function(){
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
       .append("text")
-      .attr("x", x(85))
+      .attr("x", x(100))
       .attr("dy", "-1em")
-      .style("text-anchor", "start")
+      .style("text-anchor", "end")
       .text("Perceived proefficency");
 
     svg.append("g")
