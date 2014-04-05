@@ -21,7 +21,7 @@
          "level":  "Read and done most of the exercises of the books: C++ par la pratique and Programmation orientée objets en C++",
          "levelUrl": "http://www.ppur.org/produit/110/9782880745042/Programmation%20orientee%20objets%20en%20C++%20"
         },
-        {"name": "d3.js", "xp" : 0.5, "value": 5, "projects": "interactive data visualization",
+        {"name": "d3.js", "xp" : 0.8, "value": 5, "projects": "interactive data visualization",
          "level":  "Interactive Data Visualization for the Web with Scott Murray",
          "levelUrl": "http://chimera.labs.oreilly.com/books/1230000000345"
         },
