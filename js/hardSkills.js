@@ -33,6 +33,7 @@ $(function(){
 
     svg.append("g")
       .attr("class", "x axis")
+      .attr("id", "hard-skill-axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
       .append("text")

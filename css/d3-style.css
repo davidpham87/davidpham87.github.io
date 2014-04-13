@@ -85,6 +85,13 @@ circle {
     user-select: none;
 }
 
+#hard-skill-axis .domain{
+    font: 10px sans-serif;
+    stroke-width: 2px;
+    stroke: #000;
+    stroke-opacity: 1;
+}
+
 .axis .domain {
     fill: none;
     stroke: #000;

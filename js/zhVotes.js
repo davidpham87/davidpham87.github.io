@@ -37,7 +37,7 @@ $(function(){
   }
 
 
-  // The axis
+  // The axis mapping color and the number
   function createKeyLegend(){
 
     var x = d3.scale.linear()
@@ -172,7 +172,7 @@ $(function(){
       dat = voteById.get(d.id);
       htmlText = '<font color="red">' + d.properties.name + "</font>";
       htmlText += "<table>";             
-      htmlText += "<tr> <td> Number of voters: </td> <td> </td> <td>" + dat.n+ "</td> </tr>";
+      htmlText += "<tr> <td> Number of voters: </td> <td> </td> <td>" + d3.format(",")(dat.n)+ "</td> </tr>";
       htmlText += "<tr> <td> Proportion of yes: </td> <td> </td> <td>" + dat.rateYes + "</td> </tr>";
       htmlText += "</table>";
       return htmlText;}
