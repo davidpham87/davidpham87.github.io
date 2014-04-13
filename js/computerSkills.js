@@ -92,7 +92,7 @@ d3.json("data/computerSkills.json", function(error, graph) {
   function addToolTip(g){
     g.on("mouseover", 
          function(d){
-           var htmlText = '';
+           var htmlText = '<br/><div align="center"> ';
            
            if (d.name){
              htmlText += '<font color = "#C82536">' + d.name + '</font>';
@@ -102,7 +102,8 @@ d3.json("data/computerSkills.json", function(error, graph) {
              htmlText += '<font color = "#C82536">' + d.target.name + '</font>, ';
              htmlText += '<font color = "#C82536">' + d.source.name + '</font>';
            }
-           htmlText += '<hr/>';
+           htmlText += "</div>";
+           htmlText += '<br/><br/>';
            
            function capitaliseFirstLetter(string)
            {
@@ -111,7 +112,7 @@ d3.json("data/computerSkills.json", function(error, graph) {
            for (var prop in d){
              if (['packages', 'projects', 'link', 'level'].indexOf(prop) > -1){
                propCap = capitaliseFirstLetter(prop)
-               htmlText += '<font color="#C82536">' + propCap + '</font><br/>' + d[prop] + '<hr/>';
+               htmlText += '<font color="#C82536">' + propCap + '</font><br/>' + d[prop] + '<br/> <br/>';
              }
            } 
            tooltipCs.html(htmlText);      
