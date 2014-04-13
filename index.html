@@ -21,42 +21,75 @@
 		<script src="js/config.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>    
+		<link rel="stylesheet" href="css/flexslider.css" />
 		<link rel="stylesheet" href="css/colorbrewer.css" />
     <link rel="stylesheet" href="css/d3-style.css" />
 	</head>
 
 	<body class="homepage">
 		<!-- Header Wrapper -->
+
 		<div id="header-wrapper" class="wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="12u">
 						<!-- Header -->
-						<div id="header">
-							<!-- Logo -->
-							<div id="logo">
-                <br><br><br><br><br>
-								<h1>David Pham's interactive CV</h1>
-                <br>
-							</div>
-							
-							<!-- Nav -->
-							<nav id="nav">		
-								<ul id="navUl">
-								</ul>
-							</nav>
-							<!-- /Nav -->
-						</div>
+							<!-- Logo -->	
 						<!-- /Header -->
-					</div>
+
+            <!-- slider -->
+		        <div class="flexslider">
+			        <ul class="slides">
+				        <li>
+                  <span style="width:1280px">
+					        <img src="images/banner_pro.jpg"/>
+                  <span>
+				        </li>
+				        <li>
+					        <img src="images/banner_wide.jpg" />
+				        </li>
+			        </ul>
+		        </div><!--/.flexslider-->
+            <!-- slider -->
+							<div id="logo">
+                <span>
+                  <div align="left">
+                     <h1> 
+							         &nbsp &nbsp David Pham's <br>
+                       &nbsp &nbsp Interactive CV
+                     </h1>
+                  </div>
+                <span>
+							</div>
+
+						<!-- Nav -->
+						<nav id="nav">		
+							<ul id="navUl">
+							</ul>
+						</nav>
+						<!-- /Nav -->
+					</div>          
+
 				</div>
 			</div>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
 
     <!-- /Header Wrapper -->
     <div id="footer-wrapper" class="wrapper">
@@ -68,7 +101,6 @@
 			    <div class="12u">							
 				    <!-- Intro -->
 				    <section id="intro">
-					    <p class="style1">So in case you were wondering what this is all about ...</p>
 					    <p class="style2">
 						    This is an honest resume  that I created to help me in my job search.
 					    </p>
@@ -145,7 +177,7 @@
               <p>
                 MSc in Mathematics. <br>
                 Lectures at HEC, McGill and Concordia. <br>
-                GPA: 4.1/4.3, 95%. <br>
+                GPA: 4.1/4.3. <br>
                 Thesis in Statistics (Copulae) at ETHZ.
               </p>
 				    </section>
@@ -156,7 +188,7 @@
 					    <p> 
                 BSc in Mathematics. <br>
                 Focus on numerical analysis. <br> 
-                GPA (3rd year): 5.41/6, 90%. 
+                GPA (3rd year): 5.41/6. 
               </p>
 				    </section>
           </div>
@@ -319,6 +351,7 @@
 
     <!-- /Footer Wrapper -->
     <script type="text/javascript" src="js/createIntroButton.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/computerSkills.js"></script>
     <script type="text/javascript" src="js/hardSkills.js"></script>
     <script type="text/javascript" src="js/includeProfessionalXp.js"></script>
