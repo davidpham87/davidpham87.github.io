@@ -5,7 +5,7 @@
 
 $(function(){
   d3.csv('data/workXp.csv', function(error, csvData){
-    var jobDesc = {}
+    var jobDesc = {};
     var tooltipJob = d3.select("body")
 	  .append("div")
     .attr("class", "d3-tip")
