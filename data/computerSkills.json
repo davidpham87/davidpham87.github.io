@@ -17,7 +17,7 @@
          "levelUrl": "http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0471499226.html"
         },
         {"name": "C++", "xp" : 1, "value": 4,
-         "packages": "cuda, thrust, gmpxx",
+         "packages": "thrust, gmpxx, STL",
 	 "projects": "Speed up R code, project Euler",	
          "level":  "Read and done most of the exercises of the books: C++ par la pratique and Programmation orientée objets en C++",
          "levelUrl": "http://www.ppur.org/produit/110/9782880745042/Programmation%20orientee%20objets%20en%20C++%20"
