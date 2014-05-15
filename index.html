@@ -27,8 +27,11 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>    
-		<link rel="stylesheet" href="css/flexslider.css" />
+    <!-- Photo Slides inside the webpage -->
+		<link rel="stylesheet" href="css/flexslider.css" />     
+    <!-- Color as in colorbrewer -->
 		<link rel="stylesheet" href="css/colorbrewer.css" />
+    <!-- Usefule for the popup -->
     <link rel="stylesheet" href="css/d3-style.css" />
 	</head>
 
@@ -324,7 +327,17 @@
                     <section class="highlight highlight-one">
                       <h3 class="4u highlight-one">Chloropleth of Canton Zurich</h3>
                       <p> A chloropleth of Zurich, showing the acceptance rate for the referendum about immigration on the 9th of February 2014.</p>
-					            <svg id="svgZhVotes"></svg>
+					            <!-- <svg id="svgZhVotes"></svg> -->
+                      <div id="wrap" style="margin:0 auto; text-algin:center"> 
+                        <div width="480px" height="500px" 
+                             style="display:inline-block">
+                          <svg id="svgZhVotesMap"></svg>
+                        </div>
+                        <div width="480px" height="500px" 
+                             style="display:inline-block">
+                          <svg id="svgZhVotesBarPlot"></svg>
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -365,7 +378,9 @@
     <script type="text/javascript" src="js/includeProfessionalXp.js"></script>
     <script type="text/javascript" src="js/omgHearts.js"></script>
     <script type="text/javascript" src="js/heartsInteractive.js"></script>
-    <script type="text/javascript" src="js/zhVotes.js"></script>
+    
+    <!-- <script type="text/javascript" src="js/zhVotes.js"></script> -->
+    <script type="text/javascript" src="js/zhVotesBarPlot.js"></script>
     <script type="text/javascript" src="js/includeLectures.js"></script>
 
   </body>
