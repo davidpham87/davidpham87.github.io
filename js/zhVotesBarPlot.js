@@ -1,4 +1,5 @@
 draw_barplot()
+
 function draw_barplot(data, data_gemeinde, change_data){
 
   if (typeof change_data == 'undefined'){
@@ -47,11 +48,11 @@ function draw_barplot(data, data_gemeinde, change_data){
   
   var min_x = 30;
   var max_x = 75;
-
+  
   x.domain([min_x, max_x]);
   y.domain(data.map(function(d) { return d.subject; }));
   console.log(data);
-
+  // Y axis
   svg.append("g")
     .attr("class", "y axis")
     .call(yAxis)
@@ -61,7 +62,7 @@ function draw_barplot(data, data_gemeinde, change_data){
     .attr("dy", "1em")
     .style("text-anchor", "start")
     .text("Location")
-
+  // Bars
   svg.selectAll(".bar")
     .data(data)
     .enter().append("rect")
@@ -70,7 +71,7 @@ function draw_barplot(data, data_gemeinde, change_data){
     .attr("height", y.rangeBand())
     .attr("y", function(d) { return y(d.subject); })
     .attr("width", function(d) { return x(d.level); });
-
+  // X-axis
   svg.append("g")
     .attr("class", "x axis")
     .attr("id", "hard-skill-axis")
@@ -294,7 +295,7 @@ $(function(){
       htmlText = '<font color="red">' + d.properties.name + "</font>";
       htmlText += "<table>";             
       htmlText += "<tr> <td> Number of voters: </td> <td> </td> <td>" + d3.format(",")(dat.n)+ "</td> </tr>";
-      htmlText += "<tr> <td> Proportion of yes: </td> <td> </td> <td>" + dat.rateYes + "</td> </tr>";
+      htmlText += "<tr> <td> Proportion of yes: </td> <td> </td> <td>" + d3.format(',')(dat.rateYes) + "</td> </tr>";
       htmlText += "</table>";
       return htmlText;
     }
