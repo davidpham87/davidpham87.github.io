@@ -1,6 +1,6 @@
 {
     "nodes": [
-        {"name": "R", "xp" : 5, "value": 1, "packages": "ggplot2, data.table, simsalapar, parallel, plyr, reshape2, fasttime, xts, base::stats",
+        {"name": "R", "xp" : 5, "value": 1, "packages": "ggplot2, data.table, simsalapar, parallel, plyr, reshape2, fasttime, xts, base::stats, magrittr, rmarkdown",
          "projects": "data visualiazations, statistical learning and inference, reporting, webscrapper, data cleaning",
          "level": "Approximatively the level of the book Advanced R programming",
          "levelUrl" : "http://adv-r.had.co.nz/"
@@ -53,7 +53,7 @@
         },
         {"source": 4, "target": 0, "value": 5,
          "link": 
-         "The <font color='red'>rCharts</font>and <font color='red'>shiny</font>  packages allow to write HTML5 data visualization.<hr/>The <font color='red'>XML</font> package provides a fast tool to study HTML pages."
+         "The <font color='red'>rCharts</font>and <font color='red'>shiny</font>  packages allow to write HTML5 data visualization.<hr/>The <font color='red'>XML</font> package provides a fast tool to study HTML pages. <hr/><font color='red'>Rmarkdown</font> allows to create effective HTML presentations using the ioslides template from Google."
         },
         {"source": 5, "target": 0, "value": 1,
          "link": 
@@ -65,7 +65,7 @@
         },
         {"source": 6, "target": 0, "value": 1,
          "link": 
-         "<font color='red'>xtable</font> and <font color='red'>simsalapar</font> packages allow to export dataframe in LaTeX"
+         "<font color='red'>xtable</font> and <font color='red'>simsalapar</font> packages allow to export dataframe in LaTeX."
         },
         {"source": 6, "target": 1, "value": 2,
          "link": 

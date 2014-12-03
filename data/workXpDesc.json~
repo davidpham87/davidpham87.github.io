@@ -5,6 +5,8 @@
 	"htmlText":["Provided market information on home appliances and real estate for senior researchers.","Created web scrappers with R to automatically collect online data on real estate and several online databases."]},
 {"company":"Lombard Odier",
 	"htmlText":["Redesigned the control on derivatives in Excel\/VBA in the quantitative Risk Management Unit.","Gain of 4 hours in weekly manual controls thanks to automation and of 90% on the software's execution time (25min to 2min).", "Developed a database in Access\/SQL\/VBA used by 5 seniors managers for their hiring processes."]},
+{"company":"Swiss National Bank",
+	"htmlText":["Managed and developed the repository of data visualizations linked to financial markets.", "Automated and generated several daily/weekly reports through tight integration of Excel, Bloomberg, Datastream, Matlab, VBA, Java/groovy and R.", "Supported others economists/asset managers with questions regarding statistics, word, Bloomberg, Datastream and LaTeX.", "Created a convenient spreadsheet linking the result of the Bloomberg BDH function to R."]},
 {"company":"UBS - Investment Banking",
 	"htmlText":["Reviewing exotic foreign exchange derivative products with special emphasis on risk management and numerical stability.","Designed, programmed and automated tests in VBA (simulations) and R (plots) for multidimensional exotic derivatives.","Documented, analyzed risks and certified 5 exotic foreign exchange derivatives."]},
 {"company":"Winton Capital Management",
