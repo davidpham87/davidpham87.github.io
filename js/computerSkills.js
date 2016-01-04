@@ -1,5 +1,5 @@
 d3.json("data/computerSkills.json", function(error, graph) {
- 
+
   console.log(error)
 
   var width = Math.min(960, innerWidth*0.75),
@@ -54,7 +54,7 @@ d3.json("data/computerSkills.json", function(error, graph) {
         .attr("dx", function(d) {return -27.5*d.name.length/100 + 'em';})
         .attr("transform",  function(d) {return "translate(" + d.x - 400*d.name.length + "," + d.y +")";})
         .attr('fill', 'white')
-        .style('font-size', function(d) {return 2.5*(d.xp+3);});    
+        .style('font-size', function(d) {return 2.5*(d.xp+3);});
 
   var nodeEmpty = svgCS.append("g").selectAll(".node")
     .data(graph.nodes)
@@ -85,26 +85,26 @@ d3.json("data/computerSkills.json", function(error, graph) {
 
     nodeEmpty.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
-     
+
     texts.attr("transform",  function(d) {return "translate(" + d.x + "," + d.y +")";})
   });
-  
+
   function addToolTip(g){
-    g.on("mouseover", 
+    g.on("mouseover",
          function(d){
            var htmlText = '<br/><div align="center"> ';
-           
+
            if (d.name){
              htmlText += '<font color = "#C82536">' + d.name + '</font>';
            }
-           
+
            if (d.target){
              htmlText += '<font color = "#C82536">' + d.target.name + '</font>, ';
              htmlText += '<font color = "#C82536">' + d.source.name + '</font>';
            }
            htmlText += "</div>";
            htmlText += '<br/><br/>';
-           
+
            function capitaliseFirstLetter(string)
            {
              return string.charAt(0).toUpperCase() + string.slice(1);
@@ -114,14 +114,14 @@ d3.json("data/computerSkills.json", function(error, graph) {
                propCap = capitaliseFirstLetter(prop)
                htmlText += '<font color="#C82536">' + propCap + '</font><br/>' + d[prop] + '<br/> <br/>';
              }
-           } 
-           tooltipCs.html(htmlText);      
+           }
+           tooltipCs.html(htmlText);
            return tooltipCs.style("visibility", "visible");})
 	    .on("mousemove", function(){return tooltipCs.style("top", (d3.event.pageY-100)+"px").style("left",(d3.event.pageX+20)+"px");})
 	    .on("mouseout", function(){return tooltipCs.style("visibility", "hidden");})
       .on("dblclick", function(d){
         window.open(d.levelUrl);
-      });      
+      });
   }
 
 });
