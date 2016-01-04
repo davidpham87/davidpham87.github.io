@@ -33,8 +33,9 @@
         {"name": "LaTeX", "xp" : 3, "value": 7, "projects": "Risk management reports, thesis, presentations on slides, cv",
          "level": "Ability to write all sorts of TeX documents in various format"
         },
-        {"name": "Clojure", "xp" : 3, "value" : 8, "packages": "ring, enlive, java, js",
-         "projects": "Problems on hackerrank, katas from Living Clojure",
+        {"name": "Clojure", "xp" : 2, "value" : 8, "packages":
+         "ring, enlive, java",
+         "projects": "Problems on hackerrank, katas from living clojure",
          "level": "Read and digested several books (e.g. Clojure for the Brave and the True)",
          "levelUrl" : "http://www.braveclojure.com/"
         }
@@ -76,22 +77,13 @@
          "link":
          "Python has functions for working effectively with strings, therefore modify LaTeX files"
         },
-        {"source": 7, "target": 3, "value": 1,
+        {"source": 8, "target": 4, "value": 1,
          "link":
          "Clojure can use C++ code through Java and the JRI."
         },
-        {"source": 7, "target": 5, "value": 1,
+        {"source": 8, "target": 6, "value": 2,
          "link":
          "As Clojure use the jdbc library, it is trivial to use access to SQL."
-        },
-        {"source": 7, "target": 4, "value": 1,
-         "link":
-         "ClojureScript is a perfect higher language for javascript."
-        },
-        {"source": 7, "target": 0, "value": 1,
-         "link":
-         "Clojure through rJava has access to the entire R library."
         }
-
 ]
 }
