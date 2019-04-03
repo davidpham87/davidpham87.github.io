@@ -28,7 +28,8 @@
     "react-dom": "^16.8.3",
     "react-plotly.js": "^2.2.0",
     "react-vis": "^1.11.6",
-    "showdown": "^1.8.6"
+    "showdown": "^1.8.6",
+    "d3": "^5.9.2"
   },
   "devDependencies": {
     "react-flip-move": "^3.0.2",

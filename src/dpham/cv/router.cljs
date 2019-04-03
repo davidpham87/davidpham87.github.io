@@ -10,7 +10,8 @@
    ["@material-ui/icons/MultilineChart" :default ic-multiline-chart]))
 
 (def tabs
-  [{:icon ic-home :panel :home :description "Home"}
+  [{:icon ic-home :panel :home :description "Home"
+    :long-description ""}
    {:icon ic-work :panel :work :description "Professional Experience"}
    {:icon ic-school :panel :education :description "Education"}
    {:icon ic-multiline-chart :panel :skills-statistics

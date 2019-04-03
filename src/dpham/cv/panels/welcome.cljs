@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as reagent]
    [re-frame.core :refer [subscribe dispatch]]
-   [dpham.cv.router :refer [tabs]]
+   [dpham.cv.router :refer [tabs nav-icons]]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.app-bar :refer [app-bar]]
    [dpham.cv.components.markdown :refer [markdown]]
@@ -22,9 +22,9 @@
        "Welcome to my online resume!"]
      [markdown
        "This simple website is built with wrapper around `Javascript` and `ReactJS`,
-       using `Clojurescript`. It demonstrates my ability to create read-only
-       dashboard with `react`, `plotly` and my ability to compose text with
-       `markdown`."]]
+       using `Clojurescript`. It demonstrates my ability to create dashboard
+       with `react`, `plotly` and my ability to compose text with `markdown`."]
+      [:<> (rest (nav-icons))]]
      [:> mui/Grid {:item true :xs 4}
       [:> mui/CardMedia
        {:src "/images/photo_casual.jpg"

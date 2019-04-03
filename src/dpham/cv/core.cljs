@@ -6,3 +6,4 @@
 
 (defn ^:export main []
   (reagent/render [app] (.getElementById js/document "app")))
+

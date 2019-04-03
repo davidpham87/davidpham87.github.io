@@ -7,6 +7,11 @@
    (:active-panel db)))  ;; extract a value from the application state
 
 (reg-sub
+ :ui-states
+ (fn [db _]
+   (get-in db [:ui-states] {})))
+
+(reg-sub
  :ui-states/drawer-open?
  (fn [db _]
    (get-in db [:ui-states :drawer-open?] false)))
@@ -16,5 +21,14 @@
  (fn [db _]
    (get-in db [:ui-states :drawer-displayed-sublists] false)))
 
+(reg-sub
+ :data
+ (fn [db _]
+   (:data db)))
 
+(reg-sub
+ :data-by-id
+ :<- [:data]
+ (fn [data [_ data-id]]
+   (get data data-id)))
 

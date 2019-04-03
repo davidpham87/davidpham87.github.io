@@ -4,7 +4,10 @@
    [re-frame.core :refer [subscribe dispatch]]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.app-bar :refer [app-bar]]
+
    [dpham.cv.panels.welcome :rename {root welcome}]
+   [dpham.cv.panels.work :rename {root work}]
+
    [clojure.string :as str :refer [trim split join]]
    [goog.object :as gobj]
    ["@material-ui/core" :as mui]
@@ -13,20 +16,37 @@
 (def <sub (comp deref subscribe))
 (def >evt dispatch)
 
-(defmulti active-panel identity :default :welcome)
+(defmulti active-panel identity :default :home)
 
-(defmethod active-panel :welcome [_] welcome)
+(defmethod active-panel :home [_] [welcome])
+(defmethod active-panel :work [_] [work])
 
 (defn app []
-  [:div {:style {:display "flex"}}
-   [:> mui/CssBaseline]
-   [:> mui/MuiThemeProvider {:theme custom-theme}
-    [:> app-bar]
-    [:> react/Suspense
-     {:fallback (reagent/as-element [:div {:style {:height "100vh"}} "Loading"])}
-     [active-panel (<sub [:active-panel])]]]])
+  (let [panel (subscribe [:active-panel])]
+    (fn []
+      [:div {:style {:display "flex"}}
+       [:> mui/CssBaseline]
+       [:> mui/MuiThemeProvider {:theme custom-theme}
+        [:> app-bar]
+        [:> react/Suspense
+         {:fallback (reagent/as-element [:div {:style {:height "100vh"}} "Loading"])}
+         [active-panel @panel]]]])))
 
 (comment
-  (>evt [:initialise-db])
+  (def app-node (.getElementById js/document "app"))
+  (dispatch [:initialise-db])
+  (reagent/render [active-panel (<sub [:active-panel])] app-node)
+  (reagent/render [app] app-node)
   (reagent/render (fn [] [:div "Hello"]) (.getElementById js/document "app"))
-  (dpham.cv.core/main))
+  (dpham.cv.core/main)
+  (dispatch [:set-active-panel :work])
+  )
+
+;; (comment 
+;; {"company": "Vontobel Asset Management",
+;;  "html-text":
+;;  ["Creation of the investment strategy of the Vescore Artificial Intelligence Fund.",
+;;   "Maintenance of actual investment strategies and products.",
+;;   "Creation reporting using web technologies, such as ReactJS, code splitting,
+;; dead code elimination and Clojurescript."]}
+;; )

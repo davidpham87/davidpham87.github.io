@@ -58,7 +58,7 @@
     [:<> (nav-icons)]
     [:> mui/Typography {:component "h1" :variant "h6" :color "primary" :no-wrap true
                         :class (cs (.-title classes))}
-     "David Pham's Curriculum Vitae"]
+     "David-Olivier Pham's Curriculum Vitae"]
 
     [link-icon ic-email "mailto:davidpham87@gmail.com"]
     [link-icon ic-twitter "https://twitter.com/LittleFunnyGeek"]

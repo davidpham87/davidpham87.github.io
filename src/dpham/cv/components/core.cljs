@@ -35,7 +35,7 @@
 (def custom-theme
   (createMuiTheme
    #js {:typography {:fontSize 28 :body2 {:fontSize 20}}
-        :palette #js {:primary #js {:main (gobj/get (.-red mui-colors) 400)}
+        :palette #js {:primary #js {:main (gobj/get (.-blue mui-colors) 800)}
                       :secondary #js {:main "#ffd400" :dark "#ca0"}
                       :type "light"
                       :background #js {:default "#404040"}}}))
