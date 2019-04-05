@@ -1,5 +1,6 @@
 (ns dpham.cv.components.markdown
   (:require
+   [reagent.core :as reagent]
    [dpham.cv.components.core :refer [with-styles cs]]
    [goog.object :as gobj]
    ["@material-ui/core" :as mui]
@@ -17,8 +18,11 @@
 
 (defn typography [gutterBottom variant paragraph]
   (fn [props]
-    [:> mui/Typography {:guterrBottom gutterBottom
-                        :variant variant :paragraph paragraph} props]))
+    (let [props (or (.-children props) props)]
+      (reagent/as-element
+       [:> mui/Typography {:guterrBottom true
+                           :variant variant :component variant
+                           :paragraph paragraph} props]))))
 
 (def options
   {:overrides
@@ -30,5 +34,9 @@
    {:a {:component mui/Link}}
    {:li {:component (fn [props] [:> (with-styles [li-style] li-comp) props])}}})
 
-(defn markdown [props]
-  [:> react-markdown {:style {:font-size "large"} :options options} props])
+(defn markdown [& props]
+  (let [markdown-options (if (map? (first props))
+                           (assoc (first props) :options options)
+                           {:options options})
+        markdown-props (if (map? (first props)) (last props) (first props))]
+    [:> react-markdown markdown-options markdown-props]))

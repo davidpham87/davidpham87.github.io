@@ -28,10 +28,14 @@
         :output-dir "../davidpham87-github-io-output/js"
         :asset-path "/js"
 
+        :module-loader true
         :modules
         {:main
          {:init-fn dpham.cv.core/main
-          :entries [dpham.cv.core]}}
+          :entries [dpham.cv.core]}
+         :skills
+         {:entries [dpham.cv.panels.skills]
+          :depends-on #{:main}}}
 
         :compiler-options
         {:closure-warnings {:global-this :off}
@@ -42,6 +46,12 @@
 
         :dev {:compiler-options
               {:pretty-print true}}
+
+        :release
+        {:compiler-options
+         {:infer-externs :auto
+          :optimizations :advanced
+          :externs ["externs/material-ui.ext.js"]}}
 
         :devtools
         {:http-root "../davidpham87-github-io-output/"

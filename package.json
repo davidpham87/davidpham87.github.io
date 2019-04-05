@@ -20,16 +20,16 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/lab": "^3.0.0-alpha.30",
     "create-react-class": "^15.6.3",
+    "d3": "^5.9.2",
     "markdown-to-jsx": "^6.9.3",
     "marked": "0.6.1",
     "mdi-material-ui": "^5.10.0",
-    "plotly.js": "^1.45.0",
+    "plotly.js": "^1.46.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-plotly.js": "^2.2.0",
+    "react-plotly.js": "^2.3.0",
     "react-vis": "^1.11.6",
-    "showdown": "^1.8.6",
-    "d3": "^5.9.2"
+    "showdown": "^1.8.6"
   },
   "devDependencies": {
     "react-flip-move": "^3.0.2",

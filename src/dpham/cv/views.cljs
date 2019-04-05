@@ -2,9 +2,12 @@
   (:require
    [reagent.core  :as reagent]
    [re-frame.core :refer [subscribe dispatch]]
+   [dpham.cv.utils.code-splitting :refer (lazy-component)]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.app-bar :refer [app-bar]]
 
+   [dpham.cv.panels.education :rename {root education}]
+   #_[dpham.cv.panels.skills :rename {root skills}]
    [dpham.cv.panels.welcome :rename {root welcome}]
    [dpham.cv.panels.work :rename {root work}]
 
@@ -16,10 +19,14 @@
 (def <sub (comp deref subscribe))
 (def >evt dispatch)
 
+(def skills (lazy-component dpham.cv.panels.skills/root))
+
 (defmulti active-panel identity :default :home)
 
 (defmethod active-panel :home [_] [welcome])
 (defmethod active-panel :work [_] [work])
+(defmethod active-panel :education [_] [education])
+(defmethod active-panel :skills [_] [:> skills])
 
 (defn app []
   (let [panel (subscribe [:active-panel])]
@@ -39,14 +46,4 @@
   (reagent/render [app] app-node)
   (reagent/render (fn [] [:div "Hello"]) (.getElementById js/document "app"))
   (dpham.cv.core/main)
-  (dispatch [:set-active-panel :work])
-  )
-
-;; (comment 
-;; {"company": "Vontobel Asset Management",
-;;  "html-text":
-;;  ["Creation of the investment strategy of the Vescore Artificial Intelligence Fund.",
-;;   "Maintenance of actual investment strategies and products.",
-;;   "Creation reporting using web technologies, such as ReactJS, code splitting,
-;; dead code elimination and Clojurescript."]}
-;; )
+  (dispatch [:set-active-panel :work]))

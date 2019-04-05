@@ -1,0 +1,16 @@
+# style properties from app-bar
+appBar
+appBarShift
+menuButton
+menuButtonHidden
+toolbar
+title
+
+# style properties from drawer
+drawerPaper
+drawerPaperClose
+toolbarIcon
+
+# style properties from panel
+content
+appBarSpacer

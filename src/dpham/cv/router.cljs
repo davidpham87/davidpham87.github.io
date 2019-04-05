@@ -14,10 +14,8 @@
     :long-description ""}
    {:icon ic-work :panel :work :description "Professional Experience"}
    {:icon ic-school :panel :education :description "Education"}
-   {:icon ic-multiline-chart :panel :skills-statistics
-    :description "Statistical skills"}
-   {:icon ic-code :panel :skills-programming
-    :description "Programming skills"}])
+   {:icon ic-code :panel :skills
+    :description "Skills"}])
 
 (defn nav-icon [icon-comp panel description]
   [:> mui/Tooltip {:title description}

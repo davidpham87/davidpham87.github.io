@@ -15,21 +15,38 @@
 (defn root-panel [{:keys [classes] :as props}]
   [:main {:class (cs (gobj/get classes "content"))}
    [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
-   [:> mui/Paper {:style {:flex "1 0 auto"}}
-    [:> mui/Grid {:container true :justify :space-between}
-     [:> mui/Grid {:item true :xs 8 :style {:padding 20}}
-      [:> mui/Typography {:variant "h2" :gutterBottom true :paragraph true }
-       "Welcome to my online resume!"]
-     [markdown
-       "This simple website is built with wrapper around `Javascript` and `ReactJS`,
-       using `Clojurescript`. It demonstrates my ability to create dashboard
-       with `react`, `plotly` and my ability to compose text with `markdown`."]
-      [:<> (rest (nav-icons))]]
-     [:> mui/Grid {:item true :xs 4}
-      [:> mui/CardMedia
-       {:src "/images/photo_casual.jpg"
-        :component "img"
-        :style {:width :auto :height :auto :max-height 300 :margin 0 :float :right}
-        :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]]]]])
+   [:> mui/Fade {:in true :timeout 1000}
+    [:> mui/Paper
+     [:> mui/Grid {:container true :justify :space-between}
+      [:> mui/Grid {:item true :xs 0 :sm 1 :md 3 :style {:padding 20}}]
+      [:> mui/Grid {:item true :xs 12 :sm 10 :md 6 :style {:padding 20}}
+       [:> mui/Grid {:container true :justify :center}
+        [:> mui/Grid {:item true}
+         [:img
+          {:src "/images/photo_casual.jpg"
+           :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
+           :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]]]
+       [markdown {:style {:font-size "large"}}
+        "# Welcome to my online resume!
+
+This simple website is built with wrappers around `Javascript` and `ReactJS`,
+using `ClojureScript`."]
+       [:<> (rest (nav-icons))]
+       [markdown {:style {:font-size "large"}}
+        "
+# Why?
+
+It demonstrates my ability to create dashboard with `react`, `plotly`, `google
+closure` (for dead code elimination) and my ability to compose text with
+`markdown`. The two tabs professional experience and education are derived from
+data, while the *skills* panel shows cross-filtering between a plot and
+information.
+
+Although my core skills rely on data analysis, the expectations around my output
+increased considerably and it would be impossible to meet them without different
+type of technologies. This project aims to show that I can learn skills outside
+of core skills."]]
+      [:> mui/Grid {:item true :xs 0 :sm 1 :md 3 :style {:padding 20}}]]]]])
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])
+

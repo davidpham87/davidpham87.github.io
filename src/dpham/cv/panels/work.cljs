@@ -2,7 +2,6 @@
   (:require
    [reagent.core :as reagent]
    [re-frame.core :refer [subscribe dispatch reg-sub reg-event-db]]
-   [dpham.cv.router :refer [tabs nav-icons]]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.app-bar :refer [app-bar]]
    [dpham.cv.components.markdown :refer [markdown]]
@@ -34,34 +33,44 @@
  (fn [ui-states _]
    (get ui-states :work-description-displayed-details?)))
 
+(defn employment-card-details [html-text]
+  [:> mui/CardContent
+   [:> mui/List
+    (into [:<>]
+          (mapv #(vector :> mui/ListItem
+                         [:> ic-keyboard-arrow-right]
+                         [markdown %]) html-text))]])
+
 (defn employment-card
   [{:keys [company job-dsc job-date gain-skills location website]}
    html-text expand-more?]
-  (js/console.log @expand-more?)
-  [:> mui/Grid {:item true :xs 12 :md 6}
-   [:> mui/Paper
-    [:> mui/Card
-     [:> mui/CardHeader
-      {:title job-dsc
-       :subheader
-       (reagent/as-element
-        [:> mui/Grid {:container true :justify :space-between}
-         [:> mui/Grid {:item true}
-          [:> mui/Link {:href website} company]
-          (str ", " location)]
-         [:> mui/Grid {:item true} job-date]])}]
-     [:> mui/CardContent
-      [:> mui/Typography [:i "Required skills: "] gain-skills]]
-     [:> mui/CardActions
-      [:> mui/IconButton
-       {:style {:marginLeft :auto}
-        :onClick #(dispatch [::toggle-work-description-details company])}
-       [:> (if @expand-more? ic-expand-less ic-expand-more)]]]
-     [:> mui/Collapse {:in @expand-more?}
-      [:> mui/CardContent
-       [:> mui/List
-        (into [:<>] (mapv #(vector :> mui/ListItem  [:> ic-keyboard-arrow-right] % #_(str "\u2022 " %))
-                          html-text))]]]]]])
+  (let [info-label (if @expand-more? "Hide" "Show more")]
+    [:> mui/Grid {:item true :xs 12 :md 6}
+     [:> mui/Paper
+      [:> mui/Card
+       [:> mui/CardHeader
+        {:title job-dsc
+         :subheader
+         (reagent/as-element
+          [:> mui/Grid {:container true :justify :space-between}
+           [:> mui/Grid {:item true}
+            [:> mui/Link {:href website} company]
+            (str ", " location)]
+           [:> mui/Grid {:item true} job-date]])}]
+       [:> mui/CardContent
+        [:> mui/Typography [:i "Skills: "] gain-skills]]
+       [:> mui/CardActions
+        [:div {:style {:marginLeft :auto}}
+         [:> mui/Button
+          {:onClick #(dispatch [::toggle-work-description-details company])
+           :style {:color (.. custom-theme -palette -primary -main)}}
+          info-label]
+         [:> mui/Tooltip {:title info-label}
+          [:> mui/IconButton
+           {:onClick #(dispatch [::toggle-work-description-details company])}
+           [:> (if @expand-more? ic-expand-less ic-expand-more)]]]]]
+       [:> mui/Collapse {:in @expand-more?}
+        [employment-card-details html-text]]]]]))
 
 (defn employment-cards []
   (let [job-description-items (subscribe [::data-work-desc])
@@ -83,14 +92,14 @@
        (into [:<>])))))
 
 (defn root-panel [{:keys [classes] :as props}]
-  (dispatch [:request-local-data :work-xp {:filename "work-xp.csv"}])
-  (dispatch [:request-local-data :work-desc {:filename "work-desc.json"}])
-  (.log js/console "TODO: add icon on required skills")
+  (dispatch [:request-local-data :work-xp {:filename "work_xp.csv"}])
+  (dispatch [:request-local-data :work-desc {:filename "work_desc.json"}])
   [:main {:class (cs (gobj/get classes "content"))}
    [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
-   [:> mui/Grid {:container true :justify :space-around
-                 :alignItems :flex-start :spacing 40}
-    [employment-cards]]])
+   [:> mui/Slide {:direction "up" :in true :timeout 1000}
+    [:> mui/Grid {:container true :justify :space-around
+                  :alignItems :flex-start :spacing 40}
+     [employment-cards]]]])
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])
 
@@ -98,5 +107,6 @@
   (do
     (dpham.cv.core/main)
     (dispatch [:initialise-db])
-    (dispatch [:set-active-panel :work]))
-  )
+    (dispatch [:set-active-panel :work])))
+
+
