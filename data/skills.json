@@ -60,7 +60,7 @@
   "programming": {
     "sections": [
       {
-        "description": "I contributed professionally to projects in \n \n    - Clojure,\n    - Python,\n    - Matlab, \n    - R \n    - groovy/Java.\nThese projects were mainly task automation or data analysis. This led me to learn a different skill set than the typical software engineer, as simplicity, modular code and speed of development are emphasized compared to other types of projects. I love writing code in Clojure as it drastically reduces accidental complexity. ",
+        "description": "I contributed professionally to projects in \n \n    - Clojure,\n    - Python,\n    - Matlab, \n    - R, \n    - groovy/Java.\nThese projects were mainly task automation or data analysis. This led me to learn a different skill set than the typical software engineer, as simplicity, modular code and speed of development are emphasized compared to other types of projects. I love writing code in Clojure as it drastically reduces accidental complexity. ",
         "section": "Languages"
       },
       {

@@ -174,7 +174,7 @@ programming = (
     [{"section": "Languages",
       "description":
       ("I contributed professionally to projects in \n \n    - Clojure,"
-       "\n    - Python,\n    - Matlab, \n    - R "
+       "\n    - Python,\n    - Matlab, \n    - R, "
        "\n    - groovy/Java.\n"
        "These projects were mainly task automation or data "
        "analysis. This led me to learn a different skill set than the "
