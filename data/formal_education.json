@@ -1,0 +1,43 @@
+[
+  {
+    "degree": "MSc in Applied Mathematics",
+    "description": [
+      "Focus in macroeconomics and statistics.",
+      "Thesis in deep reinforcement learning at Disney with [Tensorflow](https://www.tensorflow.org).",
+      "Degree completed while working four days a week at [ZKB](http://www.zkb.ch)."
+    ],
+    "gpa": "5.2/6, 86%",
+    "graduation-date": 2017,
+    "key": "ethz",
+    "location": "Zurich, CH",
+    "media": "images/ethz.png",
+    "name": "ETH Z\u00fcrich",
+    "website": "https://www.ethz.ch/"
+  },
+  {
+    "degree": "MSc in Mathematics",
+    "description": [
+      "Lectures at [HEC](http://www.hec.ca), [McGill](http://www.mcgill.ca) and [Concordia](http://www.concordia.ca/).Thesis in statistics (Copulae) at [ETHZ](www.ethz.ch)."
+    ],
+    "gpa": "4.1/4.3, 95%",
+    "graduation-date": 2012,
+    "key": "udem",
+    "location": "Montreal, CA",
+    "media": "images/udem.jpg",
+    "name": "University of Montreal",
+    "website": "http://www.umontreal.ca"
+  },
+  {
+    "degree": "BSc in Mathematics",
+    "description": [
+      "Focus on numerical analysis and probability."
+    ],
+    "gpa": "5.41/6, 90% (*3rd* year)",
+    "graduation-date": 2010,
+    "key": "epfl",
+    "location": "Lausanne, CH",
+    "media": "images/epfl.jpg",
+    "name": "EPFL",
+    "website": "http://www.epfl.ch/"
+  }
+]
