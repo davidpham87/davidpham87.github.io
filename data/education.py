@@ -170,7 +170,7 @@ data_analysis = [
     }]
 
 
-programming = (
+software_engineering = (
     [{"section": "Languages",
       "description":
       ("I contributed professionally to projects in \n \n    - Clojure,"
@@ -224,12 +224,12 @@ skills = {
       "If we get the chance to meet, you will find that I am an authentic, "
       "helpful and sound (but fact-driven) individual."),
      "sections": personality},
-    "programming":
-    {"title": "Programming",
+    "software-engineering":
+    {"title": "Software Engineering",
      "subheader": (
          "Programming languages aims to communicate with another human in a way a "
          "computer can understand"),
-     "sections": programming},
+     "sections": software_engineering},
     "data-analysis":
     {"title": "Data Analysis",
      "subheader": ("Because tools without creativity, ideas and "

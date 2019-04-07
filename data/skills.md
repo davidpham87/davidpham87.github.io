@@ -72,7 +72,7 @@ In order to complete the project, I used Google
 requirements (data serialization, cloud storage and
 computing).
 
-# Programming
+# Software Engineering
 
 ## Languages
 
