@@ -665,8 +665,8 @@
 
 
 (def palettes
-  (let [simple [:grey90 :aquamarine :darkorange :pink1
-                :steelblue1 :darkolivegreen]]
+  (let [simple [:grey90 :indianred :cadetblue :darkorange :pink1
+                :steelblue1 :darkolivegreen :purple :royalblue :magenta]]
     {:simple simple}))
 
 (def palettes-rgb (reduce-kv #(assoc %1 %2 (mapv colors-rgb %3)) {} palettes))

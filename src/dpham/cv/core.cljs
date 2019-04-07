@@ -7,3 +7,5 @@
 (defn ^:export main []
   (reagent/render [app] (.getElementById js/document "app")))
 
+(defn ^:dev/after-load start []
+  (main))

@@ -18,7 +18,7 @@
    [:> mui/Fade {:in true :timeout 1000}
     [:> mui/Paper
      [:> mui/Grid {:container true :justify :space-between}
-      [:> mui/Grid {:item true :xs 0 :sm 1 :md 3 :style {:padding 20}}]
+      [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]
       [:> mui/Grid {:item true :xs 12 :sm 10 :md 6 :style {:padding 20}}
        [:> mui/Grid {:container true :justify :center}
         [:> mui/Grid {:item true}
@@ -46,7 +46,7 @@ Although my core skills rely on data analysis, the expectations around my output
 increased considerably and it would be impossible to meet them without different
 type of technologies. This project aims to show that I can learn skills outside
 of core skills."]]
-      [:> mui/Grid {:item true :xs 0 :sm 1 :md 3 :style {:padding 20}}]]]]])
+      [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]]]]])
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])
 

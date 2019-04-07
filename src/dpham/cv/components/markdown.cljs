@@ -20,7 +20,7 @@
   (fn [props]
     (let [props (or (.-children props) props)]
       (reagent/as-element
-       [:> mui/Typography {:guterrBottom true
+       [:> mui/Typography {:gutterBottom true
                            :variant variant :component variant
                            :paragraph paragraph} props]))))
 

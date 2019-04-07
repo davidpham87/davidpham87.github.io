@@ -13,6 +13,4 @@
           (.then (fn [root-el]
                    (if goog.DEBUG
                      #js {:default (reagent/reactify-component (fn [] [@loadable]))}
-                     #js {:default (reagent/reactify-component root-el)})
-
-                   )))))))
+                     #js {:default (reagent/reactify-component root-el)}))))))))

@@ -28,6 +28,22 @@
 (defmethod active-panel :education [_] [education])
 (defmethod active-panel :skills [_] [:> skills])
 
+(defn loading-panel [{:keys [classes] :as props}]
+  [:main {:class (cs (gobj/get classes "content"))}
+   [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
+   [:> mui/Fade {:in true}
+    [:> mui/Grid {:container true :justify :space-around}
+     [:> mui/Grid {:item true :xs 4}]
+     [:> mui/Grid {:item true :xs 4}
+      [:> mui/Card
+       [:> mui/CardContent
+        [:> mui/Typography {:variant :h6} "Loading..."]]]]
+     [:> mui/Grid {:item true :xs 4}]]]])
+
+(defn loading []
+  [:> (with-styles [panel-style] loading-panel)])
+
+
 (defn app []
   (let [panel (subscribe [:active-panel])]
     (fn []
@@ -36,7 +52,7 @@
        [:> mui/MuiThemeProvider {:theme custom-theme}
         [:> app-bar]
         [:> react/Suspense
-         {:fallback (reagent/as-element [:div {:style {:height "100vh"}} "Loading"])}
+         {:fallback (reagent/as-element [loading])}
          [active-panel @panel]]]])))
 
 (comment

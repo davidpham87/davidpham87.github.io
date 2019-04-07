@@ -130,7 +130,11 @@
                [:> mui/Grid {:item true} graduation-date]])}]
            [:> mui/CardActions
             (when verification-link
-              [link-icon ic-link verification-link])
+              [:> mui/Tooltip {:title "Link to certificate"}
+               [:> mui/IconButton
+                {:onClick #(.open js/window verification-link "_blank")
+                 :color "inherit"}
+                [:> ic-link]]])
             [:div {:style {:marginLeft :auto}}
              [:> mui/Button
               {:onClick #(swap! expand-more? not)
