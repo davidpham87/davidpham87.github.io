@@ -1,6 +1,7 @@
 (ns dpham.cv.components.plot-network
   (:require
    [reagent.core :as reagent]
+   [reagent.dom :as dom]
    [re-frame.core :refer [dispatch]]
    [dpham.cv.components.colors :refer [simple-palette]]
    ["react-d3-graph" :as rdg]))
@@ -14,7 +15,7 @@
 
 
 (defn component-dimension [comp]
-  (let [node (reagent/dom-node comp)]
+  (let [node (dom/dom-node comp)]
     {:width (.-clientWidth node) :height (.-clientHeight node)}))
 
 (defn network-did-mount [{:keys [nodes links]} {:keys [height width]}]

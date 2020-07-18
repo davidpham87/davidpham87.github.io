@@ -1,6 +1,7 @@
 (ns dpham.cv.components.core
   (:require
    [reagent.core :as reagent]
+   [reagent.dom :as dom]
    [re-frame.core :as rf :refer [reg-event-db reg-sub]]
    [goog.object :as gobj]
    [clojure.string :as str]
@@ -13,7 +14,7 @@
   (str/join " " (filter identity names)))
 
 (defn client-width [component]
-  (let [node (reagent/dom-node component)]
+  (let [node (dom/dom-node component)]
     (if node (.-clientWidth node) 0)))
 
 (defn combine-style-fns [style-fns]
