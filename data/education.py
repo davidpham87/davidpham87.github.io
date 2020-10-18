@@ -7,7 +7,7 @@ formal_education = (
       "website": "https://www.ethz.ch/",
       "name": "ETH Zürich",
       "graduation-date": 2017,
-      "media": "images/ethz.png", 
+      "media": "images/ethz.png",
       "location": "Zurich, CH",
       "degree": "MSc in Applied Mathematics",
       "gpa": "5.2/6, 86%",
@@ -113,7 +113,7 @@ personality = (
       ("I am a really bad poker player, because I say what I think"
        "and I mean I say. Some would qualify me as a simple person, "
        "but by holding true to my values, I can enjoy solving "
-       "problems and focusing on them.")},
+       "problems and focusing on them. I hence value truth and fairness.")},
      {"section": "Helpful",
       "description":
      ("I care about those who are near to me: my family, my colleagues, my friends. "
