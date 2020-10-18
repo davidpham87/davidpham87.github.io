@@ -4,6 +4,7 @@
  [[binaryage/devtools "LATEST"]
   [cider/cider-nrepl "LATEST"]
   [cljs-ajax "LATEST"]
+  [cljs-bean/cljs-bean "LATEST"]
   [com.andrewmcveigh/cljs-time "0.5.2"]
   [com.cognitect/transit-cljs "LATEST"]
   [day8.re-frame/http-fx "LATEST"]
@@ -14,6 +15,7 @@
   [nrepl "LATEST"]
   [re-frame "LATEST"]
   [reagent "1.0.0-alpha2"]
+  [emotion-cljs "0.1.2"]
   [refactor-nrepl "LATEST"]]
 
  :nrepl {:port       3333

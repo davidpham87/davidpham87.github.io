@@ -1,14 +1,14 @@
 (ns dpham.cv.components.core
   (:require
-   [reagent.core :as reagent]
-   [reagent.dom :as dom]
-   [re-frame.core :as rf :refer [reg-event-db reg-sub]]
-   [goog.object :as gobj]
-   [clojure.string :as str]
-
    ["@material-ui/core" :as mui]
    ["@material-ui/core/colors" :as mui-colors]
-   ["@material-ui/core/styles" :refer [withStyles createMuiTheme]]))
+   ["@material-ui/core/styles" :refer [withStyles createMuiTheme]]
+   [clojure.string :as str]
+   [dpham.cv.components.style :refer-macros (defstyled)]
+   [goog.object :as gobj]
+   [re-frame.core :as rf]
+   [reagent.core :as reagent]
+   [reagent.dom :as dom]))
 
 (defn cs [& names]
   (str/join " " (filter identity names)))
@@ -35,9 +35,9 @@
 
 (def custom-theme
   (createMuiTheme
-   #js {:typography {:fontSize 28 :body2 {:fontSize 20}}
-        :palette #js {:primary #js {:main (gobj/get (.-blue mui-colors) 800)}
-                      :secondary #js {:main "#ffd400" :dark "#ca0"}
+   #js {:typography #js {:fontSize 18 :body2 #js {:fontSize 28} :body1 #js {:fontSize 18}}
+        :palette #js {:primary #js {:main (gobj/get (.-red mui-colors) 900)}
+                      :secondary #js {:main (gobj/get (.-blue mui-colors) 900) :dark "#ca0"}
                       :type "light"
                       :background #js {:default "#404040"}}}))
 
@@ -53,3 +53,9 @@
                    :height "100vh"
                    :overflow "auto"
                    :background-color (.. theme -palette -background -default)}}))
+
+(defstyled icon-button
+  mui/IconButton
+  {:margin-left 5 :margin-right 5})
+
+#_(def icon-button mui/IconButton)

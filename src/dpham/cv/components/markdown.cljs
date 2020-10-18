@@ -30,7 +30,7 @@
    {:h2 {:component (typography true "h6" false)}}
    {:h3 {:component (typography true "subtitle1" false)}}
    {:h4 {:component (typography true "caption" true)}}
-   {:p {:component (typography false "p" true)}}
+   {:p {:component (typography false "body1" true)}}
    {:a {:component mui/Link}}
    {:li {:component (fn [props] [:> (with-styles [li-style] li-comp) props])}}})
 

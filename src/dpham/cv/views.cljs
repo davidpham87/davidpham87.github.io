@@ -1,20 +1,16 @@
 (ns dpham.cv.views
   (:require
-   [reagent.core  :as reagent]
-   [re-frame.core :refer [subscribe dispatch]]
-   [dpham.cv.utils.code-splitting :refer (lazy-component)]
-   [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
+   ["@material-ui/core" :as mui]
+   ["react" :as react]
    [dpham.cv.components.app-bar :refer [app-bar]]
-
+   [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.panels.education :rename {root education}]
-   #_[dpham.cv.panels.skills :rename {root skills}]
    [dpham.cv.panels.welcome :rename {root welcome}]
    [dpham.cv.panels.work :rename {root work}]
-
-   [clojure.string :as str :refer [trim split join]]
+   [dpham.cv.utils.code-splitting :refer (lazy-component)]
    [goog.object :as gobj]
-   ["@material-ui/core" :as mui]
-   ["react" :as react]))
+   [re-frame.core :refer (subscribe dispatch)]
+   [reagent.core  :as reagent]))
 
 (def <sub (comp deref subscribe))
 (def >evt dispatch)
@@ -50,10 +46,17 @@
       [:div {:style {:display "flex"}}
        [:> mui/CssBaseline]
        [:> mui/MuiThemeProvider {:theme custom-theme}
-        [:> app-bar]
-        [:> react/Suspense
-         {:fallback (reagent/as-element [loading])}
-         [active-panel @panel]]]])))
+        [:main {:style {:flex-grow           1
+                        :overflow            :auto
+                        :min-height          "100vh"
+                        :background-position :center
+                        :background-size     :cover
+                        :z-index             10
+                        :width               "100%"}}
+         [:> app-bar]
+         [:> react/Suspense
+          {:fallback (reagent/as-element [loading])}
+          [active-panel @panel]]]]])))
 
 (comment
   (def app-node (.getElementById js/document "app"))

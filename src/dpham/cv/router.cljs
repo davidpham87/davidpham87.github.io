@@ -1,13 +1,12 @@
 (ns dpham.cv.router
   (:require
-   [reagent.core :as reagent]
-   [re-frame.core :refer [dispatch]]
+   [re-frame.core :refer (dispatch)]
+   [dpham.cv.components.core :refer (icon-button)]
    ["@material-ui/core" :as mui]
    ["@material-ui/icons/Home" :default ic-home]
    ["@material-ui/icons/Work" :default ic-work]
    ["@material-ui/icons/School" :default ic-school]
-   ["@material-ui/icons/Code" :default ic-code]
-   ["@material-ui/icons/MultilineChart" :default ic-multiline-chart]))
+   ["@material-ui/icons/Code" :default ic-code]))
 
 (def tabs
   [{:icon ic-home :panel :home :description "Home"
@@ -19,12 +18,11 @@
 
 (defn nav-icon [icon-comp panel description]
   [:> mui/Tooltip {:title description}
-   [:> mui/IconButton
-    {:onClick #(dispatch [:set-active-panel panel])}
+   [:> icon-button
+    {:size :small :on-click #(dispatch [:set-active-panel panel])}
     [:> icon-comp]]])
 
 (defn nav-icons []
-  (->
-   (for [{:keys [icon panel description]} tabs]
+  (-> (for [{:keys [icon panel description]} tabs]
      ^{:key panel} [nav-icon icon panel description])
-   doall))
+      doall))

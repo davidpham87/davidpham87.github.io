@@ -31,4 +31,3 @@
  :<- [:data]
  (fn [data [_ data-id]]
    (get data data-id)))
-

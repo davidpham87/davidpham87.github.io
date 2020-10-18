@@ -12,31 +12,12 @@
 (def <sub (comp deref subscribe))
 (def >evt dispatch)
 
-(defn root-panel [{:keys [classes] :as props}]
-  [:main {:class (cs (gobj/get classes "content"))}
-   [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
-   [:> mui/Fade {:in true :timeout 1000}
-    [:> mui/Paper
-     [:> mui/Grid {:container true :justify :space-between}
-      [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]
-      [:> mui/Grid {:item true :xs 12 :sm 10 :md 6 :style {:padding 20}}
-       [:> mui/Grid {:container true :justify :center}
-        [:> mui/Grid {:item true}
-         [:img
-          {:src "/images/photo_casual.jpg"
-           :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
-           :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]]]
-       [markdown {:style {:font-size "large"}}
-        "# Welcome to my online resume!
-
-This simple website is built with wrappers around `Javascript` and `ReactJS`,
-using `ClojureScript`."]
-       [:<> (rest (nav-icons))]
-       [markdown {:style {:font-size "large"}}
-        "
-# Why?
-
-It demonstrates my ability to create dashboard with `react`, `plotly`, `google
+(defn why? []
+  [:> mui/Card {:style {:margin-top 20}}
+   [:> mui/CardHeader {:title "Why?"}]
+   [:> mui/CardContent
+    [markdown {:style {:font-size "large"}}
+     "It demonstrates my ability to create dashboard with `react`, `plotly`, `google
 closure` (for dead code elimination) and my ability to compose text with
 `markdown`. The two tabs professional experience and education are derived from
 data, while the *skills* panel shows cross-filtering between a plot and
@@ -46,7 +27,56 @@ Although my core skills rely on data analysis, the expectations around my output
 increased considerably and it would be impossible to meet them without different
 type of technologies. This project aims to show that I can learn skills outside
 of core skills."]]
-      [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]]]]])
+   [:> mui/CardActions
+    [:div {:style {:margin-left :auto}} (rest (nav-icons))]]])
+
+(defn welcome-message []
+  [markdown {:style {:font-size "large" :color :white}}
+   "# Welcome to my online resume!
+
+This simple website is built with wrappers around `Javascript` and `ReactJS`,
+using `ClojureScript`."])
+
+(defn picture []
+  [:> mui/Grid {:item true}
+   [:img
+    {:src "/images/photo_casual.jpg"
+     :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
+     :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]])
+
+
+[:> mui/Paper
+ [:> mui/Grid {:container true :justify :space-between}
+  [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]
+  [:> mui/Grid {:item true :xs 12 :sm 10 :md 6 :style {:padding 20}}
+   [:> mui/Grid {:container true :justify :center}
+    [:> mui/Grid {:item true}
+     [:img
+      {:src "/images/photo_casual.jpg"
+       :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
+       :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]]]
+
+   [:<> (rest (nav-icons))]
+   [markdown {:style {:font-size "large"}}
+    ]]
+  [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]]]
+
+
+(defn root-panel [{:keys [classes] :as props}]
+  [:main {:class (cs (gobj/get classes "content"))}
+   [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
+   [:> mui/Fade {:in true :timeout 1000}
+    [:> mui/Grid {:container true :justify :space-between}
+     [:> mui/Grid {:item true :xs 12 :sm 10 :md 12 :style {:padding 20}}
+      [:> mui/Grid {:container true :justify :center}
+       [:> mui/Grid {:xs 12 :md 6 :lg 3 :style {:display :flex :justify-content :center}}
+        [:div {:style {:display :flex }}
+         [picture]]]
+       [:> mui/Grid {:xs 12 :md 6 :lg 9}
+        [:<> [welcome-message]]]]
+      [:> mui/Grid {:xs 12}
+       [why?]]]]
+
+    ]])
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])
-

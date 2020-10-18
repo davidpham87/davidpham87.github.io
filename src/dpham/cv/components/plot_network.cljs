@@ -11,9 +11,6 @@
 (defn mouse-over [node]
   (.log js/console (.-dispatchConfig node)))
 
-#_(defn network [{:keys [nodes links]}] nil)
-
-
 (defn component-dimension [comp]
   (let [node (dom/dom-node comp)]
     {:width (.-clientWidth node) :height (.-clientHeight node)}))
