@@ -55,7 +55,7 @@
 (defn plot [data label]
   (let [cross-filter-dispatch
         (fn [d]
-          (dispatch [::set-skills-tab (gobj/get d "section")]))]
+          (dispatch [::set-skills-tab (keyword (gobj/get d "section"))]))]
     (fn []
       (when data
         (let [records (mapv #(-> % (update :level js/parseInt)) data)
@@ -188,7 +188,8 @@ my experience in the language or the interaction."}]
 (defn root-panel [m]
   (init-event)
   (let [plots-tab (subscribe [::plots-tab])
-        skills-data (subscribe [::skills-data])]
+        skills-data (subscribe [::skills-data])
+        skills-tab (subscribe [::skills-tab])]
     (fn [{:keys [classes]}]
       [:main {:class (cs (gobj/get classes "content"))}
        [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
@@ -203,7 +204,7 @@ my experience in the language or the interaction."}]
           (when @skills-data
             [:<>
              [skills-cards-tabs]
-             [content-cards]])]]]])))
+             ^{:key @skills-tab} [content-cards @skills-tab]])]]]])))
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])
 
