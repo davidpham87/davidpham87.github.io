@@ -3,6 +3,7 @@
    ["@material-ui/core" :as mui]
    ["@material-ui/core/colors" :as mui-colors]
    ["react-vis" :as rv]
+   ["react-vis/dist/legends/discrete-color-legend" :default rv-discrete-color-legend]
    [clojure.string :as str]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.markdown :refer [markdown]]
@@ -60,27 +61,32 @@
       (when data
         (let [records (mapv #(-> % (update :level js/parseInt)) data)
               y (mapv :subject records)
-              data (map-indexed
-                    (fn [i m] (assoc m :radius0 (+ 2 (/ i 2) 0.4) :radius (+ 2 (/ i 2) 0.8)
-                                     :color i))
-                    records)]
-          [:> rv/XYPlot
-           {:x-domain [-85 100]
-            :y-domain [(- (+ 2 (count y))) (+ 2 (count y))]
-            :color-type :category
-            :height 480
-            :width 960
-            :get-angle (fn [m]
-                         (* 2 (.-PI js/Math) (/ (gobj/get m "level") 100)))
-            :get-angle-0 (fn [_] 0)}
-           [:> rv/ArcSeries
-            {:animation {:damping 9
-                         :stiffness 300}
-             :radius-domain [0 (+ (/ (count y) 2) 2.8)]
-             :on-value-mouse-over (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
-             :on-value-click (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
-             :color-range (vec palette)
-             :data data}]])))))
+              data (vec (map-indexed
+                         (fn [i m] (assoc m :radius0 (+ 2 (/ i 2) 0.4)
+                                          :radius (+ 2 (/ i 2) 0.8)
+                                          :color (nth palette i)
+                                          :title (:subject m)))
+                         records))]
+          [:<>
+           [:> rv/XYPlot
+            {:x-domain [-85 100]
+             :y-domain [(- (+ 2 (count y))) (+ 2 (count y))]
+             :color-type :category
+             :height 480
+             :width 520
+             :get-angle (fn [m]
+                          (* 2 (.-PI js/Math) (/ (gobj/get m "level") 100)))
+             :get-angle-0 (fn [_] 0)}
+            [:> rv/ArcSeries
+             {:animation {:damping 9
+                          :stiffness 300}
+              :radius-domain [0 (+ (/ (count y) 2) 2.8)]
+              :on-value-mouse-over (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
+              :on-value-click (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
+              :color-range (vec palette)
+              :data data}]]
+           [:> mui/Hidden {:smDown true}
+            [:> rv-discrete-color-legend {:orientation :horizontal :items (reverse data) :width 200}]]])))))
 
 (defn hard-skills-plot []
   (let [data (subscribe [:data-by-id :hard-skills])
