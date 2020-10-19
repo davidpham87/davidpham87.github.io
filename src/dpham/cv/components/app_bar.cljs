@@ -38,12 +38,14 @@
                   :position "absolute" :class (cs (.-appBar classes))}
    [:> mui/Toolbar {:disableGutters false :class (cs (.-toolbar classes))}
     [:<> (nav-icons)]
-    [:> mui/Typography {:component "h1" :variant "h6" :color "primary" :no-wrap true
-                        :class (cs (.-title classes))}
-     "David-Pham's CV"]
-    [link-icon ic-email "mailto:davidpham87@gmail.com"]
-    [link-icon ic-twitter "https://twitter.com/LittleFunnyGeek"]
-    [link-icon ic-linked-in "https://www.linkedin.com/in/davidpham87/"]]])
+    [:> mui/Hidden {:xsDown true}
+     [:> mui/Typography {:component "h1" :variant "h6" :color "primary" :no-wrap true
+                         :class (cs (.-title classes))}
+      "David Pham's CV"]]
+    [:div {:style {:margin-left :auto}}
+     [link-icon ic-email "mailto:davidpham87@gmail.com"]
+     [link-icon ic-twitter "https://twitter.com/LittleFunnyGeek"]
+     [link-icon ic-linked-in "https://www.linkedin.com/in/davidpham87/"]]]])
 
 (def app-bar
    (with-styles [app-bar-style menu-button-style toolbar-style] app-bar-react))

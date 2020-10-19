@@ -1,16 +1,27 @@
 (ns dpham.cv.panels.skills
   (:require
-   [reagent.core :as reagent]
-   [re-frame.core :refer [subscribe dispatch reg-sub reg-event-db]]
-   [dpham.cv.db :refer [register-ui-field]]
+   ["@material-ui/core" :as mui]
+   ["@material-ui/core/colors" :as mui-colors]
+   ["react-plotly.js" :default react-plotly]
+   ["react-vis" :as rv]
+   [clojure.string :as str]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
    [dpham.cv.components.markdown :refer [markdown]]
    [dpham.cv.components.plot-network :refer [network]]
+   [dpham.cv.db :refer [register-ui-field]]
    [goog.object :as gobj]
-   ["@material-ui/core" :as mui]
-   ["react-plotly.js" :default react-plotly]))
+   [re-frame.core :refer [subscribe dispatch reg-sub reg-event-db]]
+   [reagent.core :as reagent]))
 
 (def primary-color (.. custom-theme -palette -primary -main))
+(def reds (mapv #(gobj/get (.-red mui-colors) (* 100 %)) [5 7 9]))
+(def blues (mapv #(gobj/get (.-blue mui-colors) (* 100 %)) [5 7 9]))
+(def yellows (mapv #(gobj/get (.-yellow mui-colors) (* 100 %)) [4 6]))
+(def browns (mapv #(gobj/get (.-brown mui-colors) (* 100 %)) [4 6]))
+(def purples (mapv #(gobj/get (.-purple mui-colors) (* 100 %)) [4 6]))
+(def greys (mapv #(gobj/get (.-grey mui-colors) (* 100 %)) [4 6]))
+(def oranges (mapv #(gobj/get (.-orange mui-colors) (* 100 %)) [4 6]))
+(def palette (vec (concat reds blues yellows oranges)))
 (def default-skills-tab :languages)
 
 (let [skills-explanation-tab (register-ui-field [:skills-tab] :language)]
@@ -41,7 +52,38 @@
  (fn [[m id]]
    (get m id (get m default-skills-tab))))
 
-(defn plot []
+
+(defn plot [data label]
+  (let [cross-filter-dispatch
+        (fn [d]
+          (dispatch [::set-skills-tab (gobj/get d "section")]))]
+    (fn []
+      (when data
+        (let [records (mapv #(-> % (update :level js/parseInt)) data)
+              y (mapv :subject records)
+              data (map-indexed
+                    (fn [i m] (assoc m :radius0 (+ 2 (/ i 2) 0.4) :radius (+ 2 (/ i 2) 0.8)
+                                     :color i))
+                    records)]
+          [:> rv/XYPlot
+           {:x-domain [-85 100]
+            :y-domain [(- (+ 2 (count y))) (+ 2 (count y))]
+            :color-type :category
+            :height 480
+            :width 960
+            :get-angle (fn [m]
+                         (* 2 (.-PI js/Math) (/ (gobj/get m "level") 100)))
+            :get-angle-0 (fn [_] 0)}
+           [:> rv/ArcSeries
+            {:animation {:damping 9
+                         :stiffness 300}
+             :radius-domain [0 (+ (/ (count y) 2) 2.8)]
+             :on-value-mouse-over (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
+             :on-value-click (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
+             :color-range (vec palette)
+             :data data}]])))))
+
+#_(defn plot []
   (let [data (subscribe [:data-by-id :hard-skills])
         cross-filter-dispatch
         (fn [section-cycle x]
@@ -71,14 +113,22 @@
             :on-click (partial cross-filter-dispatch section-cycle)}])))))
 
 (defn hard-skills-plot []
-  [:> mui/Grid {:item true :xs 12 :lg 12}
-   [:> mui/Grid
-    [:> mui/Card
-     [:> mui/CardHeader
-      {:title "Skills Summary"
-       :subheader "A picture is worth a thousand words. Hover the dots
-for more details."}]
-     [:> mui/CardContent [plot]]]]])
+  (let [data (subscribe [:data-by-id :hard-skills])
+        label (reagent/atom "")]
+    (fn []
+      [:> mui/Grid {:item true :xs 12 :lg 12}
+       [:> mui/Grid
+        [:> mui/Card
+         [:> mui/CardHeader
+          {:title "Skills Summary"
+           :subheader "A picture is worth a thousand words. Hover the series for more details."}]
+         [:> mui/CardContent
+          [:div {:style {:color :black :display :absolute :height 0 :width 0}}
+           [:div {:style {:display :absolute :width 200 :font-size 22}}
+            (str @label)]]
+          [:div {:style {:display :flex :justify-content :center}}
+           [:div {:style {:display :flex}}
+            [plot @data label]]]]]]])))
 
 (defn programming-skills-plot []
   (let [data (subscribe [:data-by-id :programming-skills])]
@@ -188,7 +238,7 @@ my experience in the language or the interaction."}]
 (defn root [] [:> (with-styles [panel-style] root-panel)])
 
 (comment
-  (subscribe [:data-by-id :hard-skills])
+  @(subscribe [:data-by-id :hard-skills])
   (do
     (dispatch [:initialise-db])
     (dpham.cv.core/main)

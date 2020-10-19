@@ -44,39 +44,19 @@ using `ClojureScript`."])
      :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
      :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]])
 
-
-[:> mui/Paper
- [:> mui/Grid {:container true :justify :space-between}
-  [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]
-  [:> mui/Grid {:item true :xs 12 :sm 10 :md 6 :style {:padding 20}}
-   [:> mui/Grid {:container true :justify :center}
-    [:> mui/Grid {:item true}
-     [:img
-      {:src "/images/photo_casual.jpg"
-       :style {:object-fit :cover :width "100%" :height "100%" :max-width 300 :max-height 300 :margin 0 :border-radius "25%"} ;; :float :right
-       :title "If you want to see me in a suit, visit my LinkedIn profile :-)"}]]]
-
-   [:<> (rest (nav-icons))]
-   [markdown {:style {:font-size "large"}}
-    ]]
-  [:> mui/Grid {:item true :xs false :sm 1 :md 3 :style {:padding 20}}]]]
-
-
 (defn root-panel [{:keys [classes] :as props}]
   [:main {:class (cs (gobj/get classes "content"))}
    [:div {:class (cs (gobj/get classes "appBarSpacer"))}]
    [:> mui/Fade {:in true :timeout 1000}
-    [:> mui/Grid {:container true :justify :space-between}
-     [:> mui/Grid {:item true :xs 12 :sm 10 :md 12 :style {:padding 20}}
-      [:> mui/Grid {:container true :justify :center}
-       [:> mui/Grid {:xs 12 :md 6 :lg 3 :style {:display :flex :justify-content :center}}
-        [:div {:style {:display :flex }}
+    [:> mui/Grid {:container true :justify :space-around}
+     [:> mui/Grid {:item true :xs 12 :sm 10 :md 8 :lg 6 :xl 4}
+      [:> mui/Grid {:container true :justify :space-around}
+       [:> mui/Grid {:xs 12 :md 6 :lg 4 :style {:display :flex :justify-content :center}}
+        [:div {:style {:display :flex}}
          [picture]]]
-       [:> mui/Grid {:xs 12 :md 6 :lg 9}
+       [:> mui/Grid {:xs 12 :md 6 :lg 6}
         [:<> [welcome-message]]]]
       [:> mui/Grid {:xs 12}
-       [why?]]]]
-
-    ]])
+       [why?]]]]]])
 
 (defn root [] [:> (with-styles [panel-style] root-panel)])

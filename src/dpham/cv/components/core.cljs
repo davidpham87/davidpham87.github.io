@@ -36,10 +36,10 @@
 (def custom-theme
   (createMuiTheme
    #js {:typography #js {:fontSize 18 :body2 #js {:fontSize 28} :body1 #js {:fontSize 18}}
-        :palette #js {:primary #js {:main (gobj/get (.-red mui-colors) 900)}
+        :palette #js {:primary #js {:main (gobj/get (.-red mui-colors) 700)}
                       :secondary #js {:main (gobj/get (.-blue mui-colors) 900) :dark "#ca0"}
                       :type "light"
-                      :background #js {:default "#404040"}}}))
+                      :background #js {:default (gobj/get (.-grey mui-colors) 900)}}}))
 
 (defn panel-style [theme]
   (let [drawer-width 240
@@ -56,6 +56,9 @@
 
 (defstyled icon-button
   mui/IconButton
-  {:margin-left 5 :margin-right 5})
-
-#_(def icon-button mui/IconButton)
+  {:margin-left 5 :margin-right 5
+   :color (gobj/get (.-red mui-colors) 900)
+   :padding 5
+   "&:hover" {:background-color (gobj/get (.-red mui-colors) 700)
+              :color "#fff"
+              :box-shadow "0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08)"}})
