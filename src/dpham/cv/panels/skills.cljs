@@ -2,7 +2,6 @@
   (:require
    ["@material-ui/core" :as mui]
    ["@material-ui/core/colors" :as mui-colors]
-   ["react-plotly.js" :default react-plotly]
    ["react-vis" :as rv]
    [clojure.string :as str]
    [dpham.cv.components.core :refer [cs panel-style with-styles custom-theme]]
@@ -82,35 +81,6 @@
              :on-value-click (fn [d] (reset! label (gobj/get d "subject")) (cross-filter-dispatch d))
              :color-range (vec palette)
              :data data}]])))))
-
-#_(defn plot []
-  (let [data (subscribe [:data-by-id :hard-skills])
-        cross-filter-dispatch
-        (fn [section-cycle x]
-          (when-let [index (-> (.-points x) first .-pointIndex)]
-            (dispatch [::set-skills-tab (nth section-cycle index)])))]
-    (fn []
-      (when @data
-        (let [records (reverse @data)
-              x (mapv #(js/parseInt (:level %)) records)
-              y (mapv :subject records)
-              text (mapv :desc records)
-              section (mapv (comp keyword :section) records)
-              section-cycle (conj section (first section))]
-          [:> react-plotly
-           {:data [{:r (conj x (first x))
-                    :theta (conj y (first y))
-                    :text (conj text (first text)) :type "scatterpolar"
-                    :hoverinfo "text"
-                    :fill :toself
-                    :marker {:color primary-color}}]
-            :layout {:autosize true :margin {:l 80 :t 30 :b 30 :r 80}
-                     :polar {:radialaxis {:visible true :range [0 100]}}}
-            :config {:displayModeBar false}
-            :style {:width "100%" :height "100%"}
-            :useResizeHandler true
-            :on-hover (partial cross-filter-dispatch section-cycle)
-            :on-click (partial cross-filter-dispatch section-cycle)}])))))
 
 (defn hard-skills-plot []
   (let [data (subscribe [:data-by-id :hard-skills])
